@@ -1,6 +1,8 @@
 # neversitup-test-template
 
-## README.md show your lasted “structure project” or standard of init project structure and defined convention
+README.md show your lasted “structure project” or standard of init project structure and defined convention
+
+## Project Structure
 
 Concept of microservices & clean architecture with Golang
 
