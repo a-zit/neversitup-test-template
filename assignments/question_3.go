@@ -1,6 +1,7 @@
 package assignments
 
 import (
+	"fmt"
 	"regexp"
 )
 
@@ -9,9 +10,11 @@ import (
 // countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
 
 func QuestionThree() {
+	fmt.Println("Question 3")
 	countSmileys([]string{":)", ";(", ";}", ":-D"})
 	countSmileys([]string{";D", ":-(", ":-)", ";~)"})
 	countSmileys([]string{";]", ":[", ";*", ":$", ";-D"})
+	fmt.Println()
 }
 
 func countSmileys(s []string) int {
@@ -26,6 +29,6 @@ func countSmileys(s []string) int {
 		}
 	}
 
-	// fmt.Println(count)
+	fmt.Println("input:", s, ",result:", count)
 	return count
 }

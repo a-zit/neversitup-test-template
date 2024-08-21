@@ -1,5 +1,7 @@
 package assignments
 
+import "fmt"
+
 // [7] should return 7, because it occurs 1 time (which is odd).
 // [0] should return 0, because it occurs 1 time (which is odd).
 // [1,1,2] should return 2, because it occurs 1 time (which is odd).
@@ -7,11 +9,13 @@ package assignments
 // [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 
 func QuestionTwo() {
+	fmt.Println("Question 2")
 	FindOdd([]int{7})
 	FindOdd([]int{0})
 	FindOdd([]int{1, 1, 2})
 	FindOdd([]int{0, 1, 0, 1, 0})
 	FindOdd([]int{1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1})
+	fmt.Println()
 }
 
 func FindOdd(arr []int) int {
@@ -29,6 +33,6 @@ func FindOdd(arr []int) int {
 		}
 	}
 
-	// fmt.Println(result)
+	fmt.Println("input:", arr, ",result:", result)
 	return result
 }

@@ -3,10 +3,12 @@ package assignments
 import "fmt"
 
 func QuestionOne() {
+	fmt.Println("Question 1")
 	Permutations("aabb")
-	// Permutations("ab")
-	// Permutations("abc")
-	// Permutations("a")
+	Permutations("ab")
+	Permutations("abc")
+	Permutations("a")
+	fmt.Println()
 }
 
 func Permutations(s string) []string {
@@ -18,24 +20,21 @@ func Permutations(s string) []string {
 	permute = func(r []rune, left, right int) {
 		if left == right {
 			if !existed[string(r)] {
-				// fmt.Println("take:", string(r))
 				result = append(result, string(r))
 				existed[string(r)] = true
 			}
 		} else {
 			for i := left; i <= right; i++ {
 				swap(&r, left, i)
-				// fmt.Println("left-i:", left, i, ", result:", string(r))
 				permute(r, left+1, right)
 				swap(&r, left, i)
-				// fmt.Println("result-2:", string(r))
 			}
 		}
 	}
 
 	permute(chars, 0, len(chars)-1)
 
-	fmt.Println(result)
+	fmt.Println("input:", s, ",result:", result)
 	return result
 }
 
