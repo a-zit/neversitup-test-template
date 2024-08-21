@@ -18,11 +18,9 @@ func Permutations(s string) []string {
 	existed := make(map[string]bool)
 
 	permute = func(r []rune, left, right int) {
-		if left == right {
-			if !existed[string(r)] {
-				result = append(result, string(r))
-				existed[string(r)] = true
-			}
+		if left == right && !existed[string(r)] {
+			result = append(result, string(r))
+			existed[string(r)] = true
 		} else {
 			for i := left; i <= right; i++ {
 				swap(&r, left, i)
