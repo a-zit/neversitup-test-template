@@ -15,17 +15,20 @@ func Permutations(s string) []string {
 	var result []string
 	chars := []rune(s)
 	var permute func([]rune, int, int)
-	existed := make(map[string]bool)
 
-	permute = func(r []rune, left, right int) {
-		if left == right && !existed[string(r)] {
+	permute = func(r []rune, permPos, maxLen int) {
+		if permPos == maxLen {
 			result = append(result, string(r))
-			existed[string(r)] = true
 		} else {
-			for i := left; i <= right; i++ {
-				swap(&r, left, i)
-				permute(r, left+1, right)
-				swap(&r, left, i)
+			used := make(map[rune]bool)
+			for i := permPos; i <= maxLen; i++ {
+				if _, ok := used[r[i]]; ok {
+					continue
+				}
+				used[r[i]] = true
+				swap(&r, permPos, i)
+				permute(r, permPos+1, maxLen)
+				swap(&r, permPos, i)
 			}
 		}
 	}
